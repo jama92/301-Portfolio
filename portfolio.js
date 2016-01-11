@@ -11,20 +11,20 @@ function Project (prop) {
 
 Project.prototype.toHtml = function() {
 
-  var $newArticle = $('article.template').clone();
+  var $newProject = $('article.template').clone();
 
-  $newArticle.removeClass('template');
-  $newArticle.addClass('draft');
+  $newProject.removeClass('template');
+  $newProject.addClass('draft');
 
 
-  $newArticle.find('.projectTitle').html(this.title);
-  $newArticle.find('.projectUrl').attr('href', this.projectUrl);
+  $newProject.find('.projectTitle').html(this.title);
+  $newProject.find('.projectUrl').attr('href', this.projectUrl);
 
-  $newArticle.find('.projectDate').attr('datetime', this.date);
-  $newArticle.find('.projectDate').attr('title', this.date);
-  $newArticle.find('.projectDate').html('about ' + parseInt((new Date() - new Date(this.date))/60/60/24/1000) + ' days ago');
+  $newProject.find('.projectDate').attr('datetime', this.date);
+  $newProject.find('.projectDate').attr('title', this.date);
+  $newProject.find('.projectDate').html(parseInt((new Date() - new Date(this.date))/60/60/24/1000) + ' days ago');
 
-  return $newArticle;
+  return $newProject;
 };
 
 rawData.sort(function(a,b) {
