@@ -8,9 +8,16 @@ articleView.populateFilters = function() {
 
     if (!$(this).hasClass('template')) {
 
-      var val = $(this).attr('date');
-      var optionTag = '<option value="' + val + '">' + val + '</option>';
-      $('#year-filter').append(optionTag);
+      val = $(this).attr('year');
+      optionTag = '<option value="' + val + '">' + val + '</option>';
+
+      if ($('#year-filter option[value="' + val + '"]').length === 0) {
+
+        $('#year-filter').append(optionTag);
+
+      }
+
+      console.log(val);
 
     }
   });
@@ -23,7 +30,7 @@ articleView.handleYearFilter = function() {
     if ($(this).val()) {
 
       $('article').hide();
-      $('article[date="' + $(this).val() + '"]').fadeIn();
+      $('article[year="' + $(this).val() + '"]').fadeIn();
 
     }
 
@@ -32,8 +39,6 @@ articleView.handleYearFilter = function() {
       $('article').fadeIn();
       $('article.template').hide();
     }
-
-    $('#year-filter').val('');
 
   });
 };
