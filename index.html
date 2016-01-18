@@ -13,33 +13,45 @@
 
   <body>
 
+
     <section id = "header">
 
       <h1>Andrew McEniry's Portfolio</h1>
 
     </section>
 
-    <ul>
+    <section id = "navigation">
 
-      <li><a href = "http://github.com/jama92" target = "_blank">GitHub</a></li>
-
-    </ul>
+      <a class = "tab" href = "#"> Home</a></li>
+      <a class = "tab" href = "#"> About</a></li>
+      <a class = "tab" href = "http://github.com/jama92">GitHub</a></li>
 
     </section>
 
-    <section id="projects">
+
+    <select id="year-filter">
+
+      <option value="">Filter by Year</option>
+
+    </select>
+
+    <section id = "projects">
 
       <article class="template">
 
-        <h1 class = "projectTitle">Title</h1>
 
-        <time class = "projectDate">Date</time>
+        <h1 class = "projectTitle"></h1>
+
+        <time class = "projectDate"></time>
 
         <div>
-          
-          <a class = "projectUrl" href = "" target = "_blank">Link</a>
+
+          <a class = "projectUrl" href = "" target = "_blank"></a>
 
         </div>
+
+        <p class = "projectBody"></body>
+
 
       </article>
 
@@ -48,6 +60,7 @@
 
     <script src = "http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src = "portfolio.js"></script>
+    <script src = "projectView.js"></script>
 
   </body>
 </html>
