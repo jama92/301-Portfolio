@@ -1,0 +1,78 @@
+
+
+#header {
+
+  background-color: #61447F;
+  color: white;
+  width: 100%;
+
+  font-size: 20px;
+  font-family: Arial;
+
+}
+
+
+#navigation {
+
+  background-color: #9B6DCC;
+  color: white;
+  list-style-type: none;
+  font-size: 25px;
+  font-family: Arial;
+
+}
+
+#navigation a {
+
+  color: white;
+
+}
+
+#filters {
+
+  background-color: #C189FF;
+
+}
+
+
+#projects {
+
+  color: black;
+
+}
+
+
+#projects a {
+
+  color: #61447F;
+
+}
+
+.projectTitle {
+
+  font-size: 25px;
+  font-family: Arial;
+
+}
+
+
+@media only screen and (max-width: 640px) {
+
+  #header {
+
+    font-size: 18px;
+  }
+
+  #navigation {
+
+    font-size: 18px;
+
+  }
+
+  .projectTitle {
+
+    font-size: 20px;
+
+  }
+
+}

@@ -3,11 +3,33 @@
 <html>
 
   <head>
+
     <title>
       Andrew McEniry's Portfolio
     </title>
 
-    <link rel = 'stylesheet' href = 'style.css'>
+    <link rel = 'stylesheet' href = 'styles/base.css'>
+    <link rel = 'stylesheet' href = 'styles/layout.css'>
+    <link rel = 'stylesheet' href = 'styles/module.css'>
+
+
+    <script id = "project-template" type = "text/x-handlebars-template">
+
+      <article year = "{{year}}">
+
+        <h1 class = "projectTitle">{{title}}</h1>
+
+        <p class = "projectDate">{{date}} {{year}}</p>
+
+        <a class = "projectUrl" href = "{{link}}" target = "_blank">Link</a>
+
+        <p class = "projectBody">{{{body}}}</body>
+
+      </article>
+
+    </script>
+
+
 
   </head>
 
@@ -20,13 +42,13 @@
 
     </section>
 
-    <section id = "navigation">
+    <section id = "navigation" class = "main-nav">
 
       <!-- <ul> -->
 
-        <li><a class = "tab" href = "#">Home</a></li>
-        <li><a class = "tab" href = "#">About</a></li>
-        <li><a class = "tab" href = "http://github.com/jama92">GitHub</a></li>
+        <li class = "tab"><a id = "projectsTab" href = "#">Projects</a></li>
+        <li class = "tab"><a id = "aboutTab" href = "#">About</a></li>
+        <li><a href = "http://github.com/jama92">GitHub</a></li>
 
       <!-- </ul> -->
 
@@ -34,18 +56,17 @@
 
     <section id = "filters">
 
-      <select id="year-filter">
+      <select id = "year-filter">
 
-        <option value="">Filter by Year</option>
+        <option value = "">Filter by Year</option>
 
       </select>
 
   </section>
 
-    <section id = "projects">
+    <section id = "projects" class = "tab-projects">
 
-      <article class="template">
-
+      <!-- <article class="template">
 
         <h1 class = "projectTitle"></h1>
 
@@ -59,16 +80,28 @@
 
         <p class = "projectBody"></body>
 
-
-      </article>
+      </article> -->
 
     </section>
 
+    <section id = "aboutMe" class = "tab-aboutMe">
+
+      <p>Hi my name is Andrew. I am currently taking Code Fellows 301.
+        I hope to work in web development.</p>
+    </section>
+
+    </section>
+
+    <footer>
+      &copy; 2015 Andrew McEniry
+    </footer>
+
 
     <script src = "http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src = "projectData.js"></script>
-    <script src = "portfolio.js"></script>
-    <script src = "projectView.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src = "scripts/projectData.js"></script>
+    <script src = "scripts/project.js"></script>
+    <script src = "scripts/projectView.js"></script>
 
   </body>
 </html>
