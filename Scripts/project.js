@@ -2,13 +2,13 @@
 
 var projects = [];
 
-function Project (prop) {
+function Project(prop) {
 
-  this.title = prop.title;
-  this.link = prop.link;
-  this.date = prop.date;
-  this.year = prop.year;
-  this.body = prop.body;
+  Object.keys(prop).forEach(function(e, index, keys) {
+
+    this[e] = prop[e];
+  }, this);
+
 }
 
 Project.prototype.toHtml = function() {
@@ -46,6 +46,20 @@ Project.fetchAll = function() {
 
     });
   }
+};
+
+
+Project.numWordsAll = function() {
+
+  return Project.all.map(function(project) {
+
+    return project.body.match(/\b\w+/g).length;
+
+  }).reduce(function(a, b) {
+
+    return a + b;
+  });
+
 };
 
 
