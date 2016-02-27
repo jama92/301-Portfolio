@@ -1,0 +1,108 @@
+
+
+#header {
+
+  height: 100px;
+  padding-top: 20px;
+
+  margin-bottom: 0px;
+
+  display: flex;
+  justify-content: center;
+
+  flex: 1 100%;
+
+}
+
+
+#navigation {
+
+  height: 50px;
+
+  margin-top: 0px;
+  padding-top: 20px;
+
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+#filters {
+
+  height: 40px;
+
+}
+
+#year-filter {
+
+  margin-top: 10px;
+  margin-left: 20px;
+
+}
+
+
+#projects {
+
+  text-align: center;
+
+}
+
+
+.projectTitle {
+
+  margin-bottom: 0px;
+}
+
+
+@media only screen and (max-width: 640px) {
+
+
+  #navigation {
+
+    display: block;
+    float: left;
+
+    width: 50%;
+    height: 100px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+
+    text-align: center;
+
+  }
+
+  #navigation li {
+
+    padding: 5px 0px 5px 0px;
+
+  }
+
+  #filters {
+
+    display: block;
+    float: right;
+
+    height: 100px;
+    width: 50%;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    margin-bottom: 20px;
+
+    text-align: center;
+
+  }
+
+  #year-filter {
+
+    margin-top: 10px;
+    margin-left: 0px;
+
+  }
+
+
+}
