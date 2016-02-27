@@ -13,41 +13,52 @@ function Project (prop) {
 
 Project.prototype.toHtml = function() {
 
-  // var $newProject = $('article.template').clone();
-  //
-  // $newProject.removeClass('template');
-  //
-  // $newProject.attr('year', parseInt(this.date));
-  //
-  // $newProject.find('.projectTitle').html(this.title);
-  // $newProject.find('.projectUrl').attr('href', this.projectUrl);
-  // $newProject.find('.projectUrl').html('Link');
-  //
-  // $newProject.find('.projectDate').attr('year', parseInt(this.date));
-  //
-  // $newProject.find('.projectDate').attr('date', this.date);
-  // $newProject.find('.projectDate').html(parseInt((new Date() - new Date(this.date))/60/60/24/1000) + ' days ago');
-  //
-  // $newProject.find('.projectBody').html(this.body);
-  //
-  // $newProject.append('<hr>');
-  // return $newProject;
-
-
   var template = Handlebars.compile($('#project-template').text());
 
   return template(this);
 
 };
 
-rawData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
 
-rawData.forEach(function(ele) {
-  projects.push(new Project(ele));
-});
+Project.loadAll = function(rawData) {
+
+  rawData.sort(function(a,b) {
+    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  });
+
+
+  Project.all = rawData.map(function(ele) {
+    return new Project(ele);
+  });
+};
+
+
+Project.fetchAll = function() {
+
+  if (localStorage.rawData) {
+    Project.loadAll(JSON.parse(localStorage.rawData));
+    projectView.initIndexPage();
+  } else {
+    $.getJSON('Scripts/ProjectData.json', function(rawData) {
+      Project.loadAll(rawData);
+      localStorage.rawData = JSON.stringify(rawData);
+      projectView.initIndexPage();
+
+    });
+  }
+};
+
+
+
+// rawData.sort(function(a,b) {
+//   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+// });
+//
+// rawData.forEach(function(ele) {
+//   projects.push(new Project(ele));
+// });
 
 projects.forEach(function(a){
+  console.log('foreach');
   $('#projects').append(a.toHtml());
 });
